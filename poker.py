@@ -24,6 +24,13 @@ theBoard = ['','','','','']
 
 # Possible Poker Hands
 
+# Four of a Kind
+def has_foak(playerHand) -> bool:
+    combined_cards = playerHand + theBoard
+    ranks = [card[:-1] for card in combined_cards]
+    rank_counts = Counter(ranks)
+    return any(count >= 4 for count in rank_counts.values())
+
 # Three of a Kind
 def has_toak(playerHand) -> bool:
     combined_cards = playerHand + theBoard
